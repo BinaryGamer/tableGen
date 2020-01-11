@@ -10,8 +10,8 @@ def table(author):
   timetableData = storage[author]
   timebounds = timetableData['study']
   timePerDay = int((timebounds[1] - timebounds[0])/100)
-  print(timePerDay, 'per day.')
-  print(timebounds)
+  #print(timePerDay, 'per day.')
+  #print(timebounds)
   time = 0
   for subject in timetableData['subjects']:
     time += int(timetableData['subjects'][subject])
@@ -19,13 +19,13 @@ def table(author):
     studyPerWeek = timePerDay*7
   else:   
     studyPerWeek = timePerDay*5
-  print(studyPerWeek, 'per week of study time.')
-  print(time, 'of studying to do.')
-  if studyPerWeek < time:
-    print('Impossible.')
+  #print(studyPerWeek, 'per week of study time.')
+  #print(time, 'of studying to do.')
+  if studyPerWeek < time:   
+    #print('Impossible.')
     return jsonify({'text':'not enough time in your study week! Please take this seriously.','author':'Timetabler'})
   else:
-    print("fantastic.")
+    #print("fantastic.")
   if timetableData['weekends'] == True:
     sched = {'Sun':{},'Mon':{},'Tue':{},'Wed':{},'Thu':{},'Fri':{},'Sat':{}}
   else:   
