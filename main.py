@@ -24,8 +24,6 @@ def table(author):
   if studyPerWeek < time:   
     #print('Impossible.')
     return jsonify({'text':'not enough time in your study week! Please take this seriously.','author':'Timetabler'})
-  else:
-    #print("fantastic.")
   if timetableData['weekends'] == True:
     sched = {'Sun':{},'Mon':{},'Tue':{},'Wed':{},'Thu':{},'Fri':{},'Sat':{}}
   else:   
