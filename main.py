@@ -1,16 +1,11 @@
-from flask import Flask, request, jsonify
 import requests
-app = Flask('app')
 
 database = 'https://store.ncss.cloud/mel-group3-studybot-planner'
 
 def get_data():
   return requests.get(database)
 
-@app.route('/', methods=["POST"])
-def table():
-  data = request.get_json()
-  author = data['author']
+def table(author):
   storage = get_data().json()
   timetableData = storage[author]
   timebounds = timetableData['study']
@@ -46,15 +41,6 @@ def table():
           else:
             sched[day][subject] += 1
             subjectData[subject] -=1
-  print(sched)
+  return sched
 
-
-
-
-  message = {
-      "author": "Timetabler",
-      'text':f'cool, {author}'
-    }
-  return jsonify(message)
-
-app.run(host='0.0.0.0', port=8080, debug=True)
+print(table('frank'))
