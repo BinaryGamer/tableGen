@@ -1,5 +1,5 @@
 import requests
-
+from pprint import pprint
 database = 'https://store.ncss.cloud/mel-group3-studybot-planner'
 
 def get_data():
@@ -41,4 +41,4 @@ def table(author):
             subjectData[subject] -=1
   return sched
 
-print(table('frank'))
+pprint(table('frank'))
